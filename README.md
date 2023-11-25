@@ -1,3 +1,8 @@
+<p align="center">
+    <a href="" rel="noopener">
+    <img width=200px height=200px src="https://git.kasefuchs.su/foxcordchat/branding/raw/branch/main/subprojects/foxid/logo.svg" alt="FOxID logo"></a>
+</p>
+
 <h3 align="center">FOxID</h3>
 
 ---
