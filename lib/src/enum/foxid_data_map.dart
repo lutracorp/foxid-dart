@@ -3,6 +3,7 @@ import 'package:foxid/src/enum/uint_meta.dart';
 /// Data mapping of FOxID.
 enum FOxIDDataMap {
   timestamp(offset: 1, meta: UintMeta.uint48),
+  generator(offset: 6, meta: UintMeta.uint32),
   datacenter(offset: 6, meta: UintMeta.uint16),
   worker(offset: 8, meta: UintMeta.uint16),
   counter(offset: 10, meta: UintMeta.uint24),

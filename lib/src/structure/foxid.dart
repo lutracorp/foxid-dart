@@ -74,6 +74,13 @@ class FOxID {
   set timestamp(int value) =>
       _view.setUint48(FOxIDDataMap.timestamp.offset, value, _endian);
 
+  /// The identifier of the generator that created this FOxID.
+  int get generator => _view.getUint32(FOxIDDataMap.generator.offset, _endian);
+
+  /// Sets identifier of the generator that created this FOxID.
+  set generator(int value) =>
+      _view.setUint16(FOxIDDataMap.generator.offset, value, _endian);
+
   /// The identifier of the datacenter that created this FOxID.
   int get datacenter =>
       _view.getUint16(FOxIDDataMap.datacenter.offset, _endian);
