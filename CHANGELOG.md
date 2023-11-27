@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 - Refactored access to properties of FOxID.
 - Generator ID now randomly generated.
+- Added more package related info to README.
 
 ## 1.0.0
 

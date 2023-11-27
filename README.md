@@ -14,12 +14,39 @@
 ## 📝 Table of Contents
 
 - [About](#about)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
 - [Specification](#specification)
 - [Acknowledgments](#acknowledgement)
 
 ## 🧐 About <a name = "about"></a>
 
 Here at FoxCord, we spent a long time deciding between Snowflake and ULID, but each had its own disadvantages, and in the end we decided to create our own identifier format that includes the advantages of both. FOxID is a 128-bit identifier that is encoded using Crockford's Base32 and includes timestamp, generator identifier and two security measures against duplicate identifiers.
+
+## 🏁 Getting Started <a name = "getting-started"></a>
+
+### Prerequisites
+
+```
+Dart SDK: >=2.18.0 <4.0.0
+```
+
+### Installing
+
+With Dart:
+
+```shell
+$ dart pub add foxid
+```
+
+With Flutter:
+```shell
+$ flutter pub add foxid
+```
+
+## 🎈 Usage <a name="usage"></a>
+
+Usage examples can be found on [Forgejo](https://git.kasefuchs.su/foxcordchat/foxid/src/branch/main/example) and [GitHub](https://github.com/foxcordchat/foxid/tree/main/example) or directly on [pub.dev](https://pub.dev/packages/foxid/example)
 
 ## 📑 Specification <a name = "specification"></a>
 
