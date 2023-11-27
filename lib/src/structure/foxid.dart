@@ -21,6 +21,9 @@ class FOxID {
   /// Secure randomness generator.
   static final Random _random = Random.secure();
 
+  /// Default generator id.
+  static final int _generator = FOxIDDataMap.generator.meta.random(_random);
+
   /// Counter that increments every time when new id created.
   static int _increment = 0;
 
@@ -45,17 +48,27 @@ class FOxID {
   /// Generates FOxID with predefined parameters.
   factory FOxID.generate({
     DateTime? time,
+    int? generator,
     int? datacenter,
     int? worker,
     int? counter,
     int? random,
-  }) =>
-      FOxID.empty()
-        ..time = time ?? DateTime.now()
+  }) {
+    final FOxID result = FOxID.empty()
+      ..time = time ?? DateTime.now()
+      ..counter = counter ?? _increment++
+      ..random = random ?? FOxIDDataMap.random.meta.random(_random);
+
+    if (datacenter != null || worker != null) {
+      result
         ..datacenter = datacenter ?? 0
-        ..worker = worker ?? 0
-        ..counter = counter ?? _increment++
-        ..random = random ?? _random.nextInt(FOxIDDataMap.random.meta.maxValue);
+        ..worker = worker ?? 0;
+    } else {
+      result.generator = generator ?? _generator;
+    }
+
+    return result;
+  }
 
   /// Reader/Writer of internal FOxID byte-buffer.
   ByteData get _view => ByteData.view(payload.buffer);

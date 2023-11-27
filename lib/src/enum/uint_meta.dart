@@ -16,4 +16,7 @@ enum UintMeta {
 
   /// Max int value in field.
   int get maxValue => pow(2, byteSize * 8).toInt() - 1;
+
+  /// Get random value in range.
+  int random(Random generator) => generator.nextInt(maxValue);
 }

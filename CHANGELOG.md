@@ -12,10 +12,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ### Added
 
 - Generator ID property to FOxID manipulation class.
+- Generator ID property to FOxID generator factory.
 
 ### Changed
 
 - Refactored access to properties of FOxID.
+- Generator ID now randomly generated.
 
 ## 1.0.0
 
