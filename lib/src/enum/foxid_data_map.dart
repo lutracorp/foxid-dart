@@ -1,4 +1,4 @@
-import 'package:foxid/src/enum/uint_meta.dart';
+import 'uint_meta.dart';
 
 /// Data mapping of FOxID.
 enum FOxIDDataMap {

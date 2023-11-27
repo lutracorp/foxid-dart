@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 - Generator ID property to FOxID manipulation class.
 
+### Changed
+
+- Refactored access to properties of FOxID.
+
 ## 1.0.0
 
 **Release date:** `2023-11-26`
