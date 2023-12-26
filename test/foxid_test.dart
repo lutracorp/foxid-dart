@@ -16,7 +16,7 @@ Future<void> main() async {
     test('should decode valid FOxID from string', () {
       final FOxID foxid = FOxID.fromJson('065DTQHTA65T6JGMGBCTXT9P1M');
 
-      expect(foxid.timestamp, 152683373285771);
+      expect(foxid.timestamp, 1695931054673);
       expect(foxid.datacenter, 35747);
       expect(foxid.worker, 18964);
       expect(foxid.counter, 8575406);
