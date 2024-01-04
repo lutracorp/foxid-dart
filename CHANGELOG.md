@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ### Added
 
 - String representation of FOxID.
+- Platform specific values generation.
 
 ## 1.1.1
 

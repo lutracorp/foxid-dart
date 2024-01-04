@@ -6,6 +6,7 @@ import 'package:base32/encodings.dart';
 
 import '../enum/foxid_data_map.dart';
 import '../extension/uint_byte_data.dart';
+import '../helper/helper.dart';
 
 /// A class for manipulating FoxCord FOxID's.
 class FOxID {
@@ -21,8 +22,8 @@ class FOxID {
   /// Secure randomness generator.
   static final Random _random = Random.secure();
 
-  /// Default generator id.
-  static final int _generator = FOxIDDataMap.generator.meta.random(_random);
+  /// FOxID platform specific helper.
+  static final FOxIDHelper _helper = FOxIDHelper();
 
   /// Counter that increments every time when new id created.
   static int _increment = 0;
@@ -59,12 +60,12 @@ class FOxID {
       ..counter = counter ?? _increment++
       ..random = random ?? FOxIDDataMap.random.meta.random(_random);
 
-    if (datacenter != null || worker != null) {
-      result
-        ..datacenter = datacenter ?? 0
-        ..worker = worker ?? 0;
+    if (generator != null) {
+      result.generator = generator;
     } else {
-      result.generator = generator ?? _generator;
+      result
+        ..datacenter = datacenter ?? _helper.datacenter
+        ..worker = worker ?? _helper.worker;
     }
 
     return result;
