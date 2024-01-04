@@ -121,4 +121,15 @@ class FOxID {
 
   /// Encode this FOxID to string.
   String toJson() => base32.encode(payload, encoding: _stringEncoding);
+
+  @override
+  String toString() => (StringBuffer('FOxID(')
+        ..write('time: $time, ')
+        ..write('generator: $generator, ')
+        ..write('datacenter: $datacenter, ')
+        ..write('worker: $worker, ')
+        ..write('counter: $counter, ')
+        ..write('random: $random')
+        ..write(')'))
+      .toString();
 }
