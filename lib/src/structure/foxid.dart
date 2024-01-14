@@ -17,7 +17,7 @@ class FOxID {
   static const Endian _endian = Endian.big;
 
   /// Length of FOxID in bytes.
-  static const int _byteLength = 16;
+  static const int byteLength = 16;
 
   /// Secure randomness generator.
   static final Random _random = Random.secure();
@@ -32,11 +32,11 @@ class FOxID {
   late final Uint8List payload;
 
   /// Creates FOxID with empty payload.
-  FOxID.empty() : payload = Uint8List(_byteLength);
+  FOxID.empty() : payload = Uint8List(byteLength);
 
   /// Creates FOxID with predefined payload.
   FOxID.fromUint8List(this.payload) {
-    if (payload.lengthInBytes != _byteLength) {
+    if (payload.lengthInBytes != byteLength) {
       throw FormatException("Invalid FOxID byte length.");
     }
   }
