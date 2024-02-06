@@ -41,6 +41,12 @@ class FOxID {
     }
   }
 
+  /// Create FOxID from list.
+  factory FOxID.fromList(List<int> payload) =>
+      FOxID.fromUint8List(
+        Uint8List.fromList(payload),
+      );
+
   /// Extracts FOxID from its string representation.
   factory FOxID.fromJson(String json) => FOxID.fromUint8List(
         base32.decode(json, encoding: _stringEncoding),
