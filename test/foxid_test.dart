@@ -40,5 +40,21 @@ Future<void> main() async {
       expect(foxid.counter, 30);
       expect(foxid.random, 40);
     });
+
+    test('should detect that FOxIDs are not equal', () {
+      final FOxID first = FOxID.empty();
+      final FOxID second = FOxID.generate();
+
+      expect(first != second, true);
+    });
+
+    test('should detect that FOxIDs are equal', () {
+      const String canonical = '065DTQHTA65T6JGMGBCTXT9P1M';
+
+      final FOxID first = FOxID.fromJson(canonical);
+      final FOxID second = FOxID.fromJson(canonical);
+
+      expect(first == second, true);
+    });
   });
 }

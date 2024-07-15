@@ -3,6 +3,7 @@ import 'dart:typed_data';
 
 import 'package:base32/base32.dart';
 import 'package:base32/encodings.dart';
+import 'package:collection/collection.dart';
 
 import '../enum/foxid_data_map.dart';
 import '../extension/uint_byte_data.dart';
@@ -10,23 +11,26 @@ import '../helper/helper.dart';
 
 /// A class for manipulating FoxCord FOxID's.
 class FOxID {
-  /// The encoding in which FOxID is represented as a string.
-  static const Encoding _stringEncoding = Encoding.crockford;
+  /// Counter that increments every time when new id created.
+  static int _increment = 0;
+
+  /// Length of FOxID in bytes.
+  static const int byteLength = 16;
 
   /// The byte order used in FOxID.
   static const Endian _endian = Endian.big;
 
-  /// Length of FOxID in bytes.
-  static const int byteLength = 16;
+  /// The encoding in which FOxID is represented as a string.
+  static const Encoding _stringEncoding = Encoding.crockford;
+
+  /// Helper for checking equality of lists.
+  static const ListEquality<int> _listEquality = ListEquality<int>();
 
   /// Secure randomness generator.
   static final Random _random = Random.secure();
 
   /// FOxID platform specific helper.
   static final FOxIDHelper _helper = FOxIDHelper();
-
-  /// Counter that increments every time when new id created.
-  static int _increment = 0;
 
   /// Payload of this FOxID.
   late final Uint8List payload;
@@ -42,8 +46,7 @@ class FOxID {
   }
 
   /// Create FOxID from list.
-  factory FOxID.fromList(List<int> payload) =>
-      FOxID.fromUint8List(
+  factory FOxID.fromList(List<int> payload) => FOxID.fromUint8List(
         Uint8List.fromList(payload),
       );
 
@@ -126,8 +129,12 @@ class FOxID {
   /// Sets of random value that is normally obtained at the time when identifier is generated.
   set random(int value) => _view.setUint(FOxIDDataMap.random, value, _endian);
 
-  /// Encode this FOxID to string.
-  String toJson() => base32.encode(payload, encoding: _stringEncoding);
+  @override
+  int get hashCode => _listEquality.hash(payload);
+
+  @override
+  bool operator ==(Object other) =>
+      other is FOxID && _listEquality.equals(other.payload, payload);
 
   @override
   String toString() => (StringBuffer('FOxID(')
@@ -139,4 +146,7 @@ class FOxID {
         ..write('random: $random')
         ..write(')'))
       .toString();
+
+  /// Encode this FOxID to string.
+  String toJson() => base32.encode(payload, encoding: _stringEncoding);
 }
