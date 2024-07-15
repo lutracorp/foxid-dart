@@ -1,8 +1,8 @@
 name: foxid
 version: 1.2.2
 description: A library for manipulating with FOxID - unique identifiers with the possibility of lexicographic sorting.
-repository: https://git.kasefuchs.su/foxcordchat/foxid
-issue_tracker: https://github.com/foxcordchat/foxid/issues
+repository: https://codeberg.org/lutracorp/foxid
+issue_tracker: https://codeberg.org/lutracorp/foxid/issues
 
 environment:
   sdk: '>=2.18.0 <4.0.0'

@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 - Equality operator for FOxID class.
 
+### Changed
+
+- Migrated repository and issue tracker to [Codeberg](https://codeberg.org/lutracorp/foxid).
+
 ## 1.2.2
 
 **Release date:** `2024-02-06`

@@ -1,13 +1,8 @@
-<p align="center">
-    <a href="" rel="noopener">
-    <img width=200px height=200px src="https://git.kasefuchs.su/foxcordchat/branding/raw/branch/main/subprojects/foxid/logo.svg" alt="FOxID logo"></a>
-</p>
-
 <h3 align="center">FOxID</h3>
 
 ---
 
-<p align="center"> Floof Object IDentifier
+<p align="center"> Unique object identifier format with the possibility of lexicographic sorting.
     <br> 
 </p>
 
@@ -21,7 +16,7 @@
 
 ## 🧐 About <a name = "about"></a>
 
-Here at FoxCord, we spent a long time deciding between Snowflake and ULID, but each had its own disadvantages, and in the end we decided to create our own identifier format that includes the advantages of both. FOxID is a 128-bit identifier that is encoded using Crockford's Base32 and includes timestamp, generator identifier and two security measures against duplicate identifiers.
+Here at LutraCorp, we spent a long time deciding between Snowflake and ULID, but each had its own disadvantages, and in the end we decided to create our own identifier format that includes the advantages of both. FOxID is a 128-bit identifier that is encoded using Crockford's Base32 and includes timestamp, generator identifier and two security measures against duplicate identifiers.
 
 ## 🏁 Getting Started <a name = "getting-started"></a>
 
@@ -46,7 +41,7 @@ $ flutter pub add foxid
 
 ## 🎈 Usage <a name="usage"></a>
 
-Usage examples can be found on [Forgejo](https://git.kasefuchs.su/foxcordchat/foxid/src/branch/main/example) and [GitHub](https://github.com/foxcordchat/foxid/tree/main/example) or directly on [pub.dev](https://pub.dev/packages/foxid/example)
+Usage examples can be found on [Codeberg](https://codeberg.org/lutracorp/foxid/src/branch/main/example) and [GitHub](https://github.com/lutracorp/foxid/tree/main/example) or directly on [pub.dev](https://pub.dev/packages/foxid/example)
 
 ## 📑 Specification <a name = "specification"></a>
 
